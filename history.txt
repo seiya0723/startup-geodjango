@@ -1,0 +1,134 @@
+   21  20/10/21 09:54:19 echo "ここからgeodjangoをインストールする"
+   22  20/10/21 10:02:03 ls
+   23  20/10/21 10:02:11 sqlite
+   24  20/10/21 10:02:14 sqlite3
+   25  20/10/21 10:02:32 sudo apt install sqlite3
+   26  20/10/21 10:02:49 sudo apt update && sudo apt upgrade 
+   27  20/10/21 10:36:12 sudo apt autoremove
+   28  20/10/21 10:47:09 sudo apt install binutils libproj-dev gdal-bin
+   29  20/10/21 10:52:39 ldconfig --help
+   30  20/10/21 11:04:33 sudo apt install build-essential gcc g++ 
+   31  20/10/21 11:04:44 sudo apt -yV install swig curl 
+   32  20/10/21 11:05:17 sudo apt -yV install python3-dev python3-pip python3-numpy python-dev python-pip python-numpy 
+   33  20/10/21 11:08:33 sudo mkdir /usr/local/geos
+   34  20/10/21 11:08:46 sudo chown $USER /usr/local/geos
+   35  20/10/21 11:08:55 cd /usr/local/geos
+   36  20/10/21 11:19:37 wget http://download.osgeo.org/geos/geos-3.5.1.tar.bz2
+   37  20/10/21 11:19:46 tar -xvjof geos-3.5.1.tar.bz2
+   38  20/10/21 11:19:55 cd geos-3.5.1
+   39  20/10/21 11:19:58 ./configure 
+   40  20/10/21 11:20:25 ./configure --enable-python
+   41  20/10/21 11:20:46 make
+   42  20/10/21 11:25:13 ls -al
+   43  20/10/21 11:25:29 sudo make install 
+   44  20/10/21 11:25:47 cd /usr/local/ 
+   45  20/10/21 11:25:51 sudo mkdir proj 
+   46  20/10/21 11:25:55 sudo chown $USER proj
+   47  20/10/21 11:25:59 cd proj
+   48  20/10/21 11:26:03 wget http://download.osgeo.org/proj/proj-5.1.0.tar.gz
+   49  20/10/21 11:26:11 tar -xzvof proj-5.1.0.tar.gz 
+   50  20/10/21 11:26:16 cd proj-5.1.0
+   51  20/10/21 11:26:20 ./configure
+   52  20/10/21 11:26:27 make
+   53  20/10/21 11:31:20 sudo make install 
+   54  20/10/21 11:31:33 sudo apt install libhdf4-0 libhdf4-dev
+   55  20/10/21 11:31:55 cd /usr/local/ 
+   56  20/10/21 11:31:59 sudo mkdir hdf5 
+   57  20/10/21 11:32:05 sudo chown $USER hdf5 
+   58  20/10/21 11:32:09 cd hdf5
+   59  20/10/21 11:32:14 wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.10.1.tar.gz
+   60  20/10/21 11:41:34 wget https://support.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.10.5.tar.gz
+   61  20/10/21 11:42:47 tar -xzvof hdf5-1.10.5.tar.gz 
+   62  20/10/21 11:43:02 rm hdf5-1.10.5.tar.gz 
+   63  20/10/21 11:43:07 cd hdf5-1.10.5/
+   64  20/10/21 11:43:16 ./configure --prefix=/usr/local --enable-shared --enable-hl
+   65  20/10/21 11:43:58 make
+   66  20/10/21 11:48:07 sudo make install 
+   67  20/10/21 11:48:31 sudo apt install gdal-bin
+   68  20/10/21 11:48:51 sudo apt install libgdal-dev 
+   69  20/10/21 11:50:57 sudo apt install libgdal1-dev
+   70  20/10/21 11:51:12 sudo apt install libgdal-dev
+   71  20/10/21 11:51:19 sudo apt install python-gdal
+   72  20/10/21 11:51:33 sudo apt install python-geopandas
+   73  20/10/21 11:55:04 sudo apt install python3-gdal
+   74  20/10/21 11:55:27 sudo apt install python3-geopandas 
+   75  20/10/21 11:57:48 sudo apt install qgis 
+   76  20/10/21 12:06:28 sudo apt install python-qgis 
+   77  20/10/21 12:06:34 sudo apt install qgis-plugin-grass
+   78  20/10/21 12:22:10 sudo apt install postgresql-10
+   79  20/10/21 12:22:36 sudo apt install postgresql-client-10
+   80  20/10/21 12:22:44 sudo apt install postgresql-client-common postgresql-common 
+   81  20/10/21 12:22:52 sudo apt install postgresql-contrib
+   82  20/10/21 12:22:59 sudo apt install pgadmin3
+   83  20/10/21 12:23:19 sudo apt install postgresql-server-dev-10
+   84  20/10/21 12:23:39 sudo apt install python-psycopg2
+   85  20/10/21 12:23:44 sudo apt install python3-psycopg2
+   86  20/10/21 12:25:15 psql --version
+   87  20/10/21 12:25:35 sudo su -c "createuser dbadmin --login --inherit --superuser --createdb --createrole --pwprompt" - postgres
+   88  20/10/21 12:25:48 sudo service postgresql restart
+   89  20/10/21 12:25:56 sudo -u postgres createdb -O dbadmin hoge
+   90  20/10/21 12:26:03 psql -h localhost -U dbadmin hoge
+   91  20/10/21 12:26:36 sudo apt install libxml2-dev
+   92  20/10/21 12:26:45 cd /usr/local/
+   93  20/10/21 12:26:54 sudo mkdir postgis
+   94  20/10/21 12:27:02 sudo chown $USER postgis
+   95  20/10/21 12:27:07 cd postgis
+   96  20/10/21 12:27:13 wget http://download.osgeo.org/postgis/source/postgis-2.4.4.tar.gz
+   97  20/10/21 12:27:22 tar -xzvof postgis-2.4.4.tar.gz 
+   98  20/10/21 12:27:27 cd postgis-2.4.4
+   99  20/10/21 12:27:34 ./configure --with-projdir=/usr/local/proj/proj-5.1.0 --with-pgconfig=/usr/bin/pg_config --with-xml2config=/usr/bin/xml2-config
+  100  20/10/21 12:27:48 make
+  101  20/10/21 12:28:51 sudo make install 
+  102  20/10/21 12:29:03 psql -h localhost -U dbadmin hoge
+  103  20/10/21 13:06:21 python3 manage.py startapp test
+  104  20/10/21 13:06:30 python3 manage.py startapp mapping
+  105  20/10/21 13:06:32 ls
+  106  20/10/21 13:07:11 vi ./mapping/apps.py 
+  107  20/10/21 13:07:25 vi ./mapping/
+  108  20/10/21 13:16:03 python3 manage.py ogrinspect --srid=6668 ./mapping/world/N03-19_190101.shp 
+  109  20/10/21 13:16:13 python3 manage.py ogrinspect ./mapping/world/N03-19_190101.shp 
+  110  20/10/21 13:18:11 python3 manage.py --srid=6668 ./mapping/world/N03-19_190101.shp Border
+  111  20/10/21 13:18:27 python3 manage.py orinspect --srid=6668 ./mapping/world/N03-19_190101.shp Border
+  112  20/10/21 13:18:44 python3 manage.py ogrinspect --srid=6668 ./mapping/world/N03-19_190101.shp Border
+  113  20/10/21 13:18:55 python3 manage.py ogrinspect --srid=6668 ./mapping/world/N03-19_190101.shp
+  114  20/10/21 13:19:18 python3 manage.py ogrinspect --srid=6668 ./mapping/world/N03-19_190101.shp Border
+  115  20/10/21 13:23:18 cd ../
+  116  20/10/21 13:23:22 cd geodjango-book-master/
+  117  20/10/21 13:23:34 ls -al
+  118  20/10/21 13:23:48 find -iname "manage.py"
+  119  20/10/21 13:23:59 cd download/
+  120  20/10/21 13:23:59 ;s
+  121  20/10/21 13:24:02 ls
+  122  20/10/21 13:24:10 cd source_code/
+  123  20/10/21 13:24:11 ;s
+  124  20/10/21 13:24:12 ls
+  125  20/10/21 13:24:50 python3 manage.py runserver 127.0.0.1:8001
+  126  20/10/21 13:31:28 cd ../
+  127  20/10/21 13:31:29 cd../
+  128  20/10/21 13:31:30 cd ../
+  129  20/10/21 13:31:33 cd GeoDjangoTutorial1.7-master/
+  130  20/10/21 13:31:34 ls
+  131  20/10/21 13:31:39 python3 manage.py runserver 127.0.0.1:8001
+  132  20/10/21 13:31:51 vi ./googlemaps/settings.py 
+  133  20/10/21 13:32:50 python3 manage.py runserver 127.0.0.1:8001
+  134  20/10/21 13:33:11 vi ./waypoints/models.py 
+  135  20/10/21 13:33:57 vi ./googlemaps/settings.py 
+  136  20/10/21 13:34:16 python3 manage.py runserver 127.0.0.1:8001
+  137  20/10/21 13:45:14 cd ../
+  138  20/10/21 13:45:18 cd geodjango
+  139  20/10/21 13:45:19 ls
+  140  20/10/21 13:45:23 vi ./config/settings.py 
+  141  20/10/21 10:53:22 cd ~/Downloads/
+  142  20/10/21 10:53:32 wget http://download.osgeo.org/geos/geos-3.4.2.tar.bz2
+  143  20/10/21 10:53:41 tar xjf geos-3.4.2.tar.bz2
+  144  20/10/21 10:53:58 cd geos-3.4.2/
+  145  20/10/21 10:54:08 ./configure 
+  146  20/10/21 10:54:29 make
+  147  20/10/21 10:54:39 sudo make install
+  148  20/10/21 10:54:52 sudo ldconfig
+  149  20/10/21 10:55:02 ./configure 
+  150  20/10/21 10:55:23 sudo make install
+  151  20/10/21 14:27:15 history | tail -n 30
+  152  20/10/21 14:27:21 history | tail -n 100
+  153  20/10/21 14:27:31 history
+  154  20/10/21 14:28:48 history > history.txt
